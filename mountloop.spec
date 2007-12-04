@@ -8,7 +8,7 @@ License: GPL
 Group: System/Base
 Requires: ssh-askpass, drakxtools, perl-MDK-Common, mount >= 2.11r-2mdk
 BuildRoot: %{_tmppath}/%{name}-buildroot
-BuildRequires: XFree86-devel
+BuildRequires: X11-devel
 Prefix: %{_prefix}
 
 %description
