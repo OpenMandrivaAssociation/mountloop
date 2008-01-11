@@ -23,10 +23,6 @@ Allow users to mount encrypted loopback filesystems.
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
-mkdir -p $RPM_BUILD_ROOT/%_menudir
-cat > $RPM_BUILD_ROOT/%_menudir/%name << EOF
-?package(%name): needs=x11 section=Applications/Archiving/Other longtitle="Create encrypted folder" title=DrakLoop command=drakloop icon="%name.png" xdg="true"
-EOF
 
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
 cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
@@ -59,7 +55,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/drakloop
 /etc/X11/xinit.d/*
 /usr/X11R6/bin/*
-%_menudir/*
 %{_datadir}/applications/mandriva-%{name}.desktop
 %_iconsdir/%name.png
 %_miconsdir/%name.png
