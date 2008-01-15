@@ -1,7 +1,7 @@
 Summary: Allow users to mount files via loopback
 Name: mountloop
 Version: 0.15.4
-Release: %mkrel 1
+Release: %mkrel 2
 URL: http://www.mandriva.com/
 Source0: %{name}-%{version}.tar.bz2
 License: GPL
