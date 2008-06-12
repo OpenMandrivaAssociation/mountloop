@@ -62,10 +62,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 
+%if %mdkversion < 200900
 %update_menus
+%endif
 
 %postun
 
+%if %mdkversion < 200900
 %clean_menus
+%endif
 
 
