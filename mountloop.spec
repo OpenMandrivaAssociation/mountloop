@@ -1,15 +1,14 @@
 Summary: Allow users to mount files via loopback
 Name: mountloop
 Version: 0.15.4
-Release: %mkrel 4
+Release: %mkrel 5
 URL: http://www.mandriva.com/
 Source0: %{name}-%{version}.tar.bz2
 License: GPL
 Group: System/Base
 Requires: ssh-askpass, drakxtools, perl-MDK-Common, mount >= 2.11r-2mdk
 BuildRoot: %{_tmppath}/%{name}-buildroot
-BuildRequires: X11-devel
-Prefix: %{_prefix}
+BuildRequires: libx11-devel
 
 %description
 Allow users to mount encrypted loopback filesystems.
@@ -18,7 +17,7 @@ Allow users to mount encrypted loopback filesystems.
 %setup -q
 
 %build
-%make CFLAGS="$RPM_OPT_FLAGS"
+%make CFLAGS="%optflags %ldflags"
 
 %install
 rm -rf $RPM_BUILD_ROOT
