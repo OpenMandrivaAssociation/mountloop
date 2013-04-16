@@ -1,7 +1,7 @@
 Summary: Allow users to mount files via loopback
 Name: mountloop
 Version: 0.15.4
-Release: %mkrel 5
+Release: 6
 URL: http://www.mandriva.com/
 Source0: %{name}-%{version}.tar.bz2
 License: GPL
@@ -20,11 +20,10 @@ Allow users to mount encrypted loopback filesystems.
 %make CFLAGS="%optflags %ldflags"
 
 %install
-rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
 
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
-cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
+mkdir -p %{buildroot}%{_datadir}/applications
+cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
 Name=DrakLoop
 Comment=Create encrypted folder
@@ -35,18 +34,16 @@ Type=Application
 Categories=X-MandrivaLinux-System-FileTools;System;
 EOF
 
-mkdir -p $RPM_BUILD_ROOT%_iconsdir $RPM_BUILD_ROOT%_miconsdir $RPM_BUILD_ROOT%_liconsdir
-install -m 644 mountloop-20.png $RPM_BUILD_ROOT%_iconsdir/%name.png
-install -m 644 mountloop-32.png $RPM_BUILD_ROOT%_miconsdir/%name.png
-install -m 644 mountloop-48.png $RPM_BUILD_ROOT%_liconsdir/%name.png
+mkdir -p %{buildroot}%_iconsdir %{buildroot}%_miconsdir %{buildroot}%_liconsdir
+install -m 644 mountloop-20.png %{buildroot}%_iconsdir/%name.png
+install -m 644 mountloop-32.png %{buildroot}%_miconsdir/%name.png
+install -m 644 mountloop-48.png %{buildroot}%_liconsdir/%name.png
 
 %{find_lang} drakloop
 
 %clean
-rm -rf $RPM_BUILD_ROOT
 
 %files -f drakloop.lang
-%defattr(-,root,root)
 %doc README ChangeLog AUTHORS
 %attr(4755,root,root) %{_bindir}/encsetup
 %attr(4755,root,root) %{_bindir}/mountloop
@@ -58,20 +55,6 @@ rm -rf $RPM_BUILD_ROOT
 %_iconsdir/%name.png
 %_miconsdir/%name.png
 %_liconsdir/%name.png
-
-%post
-
-%if %mdkversion < 200900
-%update_menus
-%endif
-
-%postun
-
-%if %mdkversion < 200900
-%clean_menus
-%endif
-
-
 
 
 %changelog
