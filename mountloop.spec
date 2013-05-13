@@ -1,13 +1,12 @@
 Summary: Allow users to mount files via loopback
 Name: mountloop
 Version: 0.15.4
-Release: 7
+Release: 8
 URL: http://www.mandriva.com/
 Source0: %{name}-%{version}.tar.bz2
 License: GPL
 Group: System/Base
 Requires: ssh-askpass, drakxtools, perl-MDK-Common, mount >= 2.11r-2mdk
-BuildRoot: %{_tmppath}/%{name}-buildroot
 BuildRequires: pkgconfig(x11)
 
 %description
