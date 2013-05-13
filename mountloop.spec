@@ -8,7 +8,7 @@ License: GPL
 Group: System/Base
 Requires: ssh-askpass, drakxtools, perl-MDK-Common, mount >= 2.11r-2mdk
 BuildRoot: %{_tmppath}/%{name}-buildroot
-BuildRequires: libx11-devel
+BuildRequires: pkgconfig(x11)
 
 %description
 Allow users to mount encrypted loopback filesystems.
